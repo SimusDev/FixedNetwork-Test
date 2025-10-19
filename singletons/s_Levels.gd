@@ -10,6 +10,7 @@ func _ready() -> void:
 		var path: String = array[0]
 		var level: R_Level = load(path)
 		_loaded[level.get_code()] = level
+		level._loaded()
 		SD_Console.i().write_info("map loaded: %s" % path)
 		array.erase(path)
 

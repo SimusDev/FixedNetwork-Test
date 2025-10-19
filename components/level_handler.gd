@@ -61,6 +61,7 @@ func _change_to_local(level: R_Level) -> void:
 	_node = scene.instantiate()
 	_node.name = "level"
 	root.add_child(_node)
+	level._changed_in_game()
 	
 	SD_Console.i().write_info("level changed to: %s" % level.get_code())
 
