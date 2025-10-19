@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://b5mamk8v0a5ok"]
 
 [ext_resource type="Script" uid="uid://478voqxy4st" path="res://entities/player/player.gd" id="1_symyc"]
-[ext_resource type="PackedScene" uid="uid://1q3261e7f2vy" path="res://3d_objects/knight/animated_model.tscn" id="2_26q78"]
-[ext_resource type="Script" uid="uid://b33klq6nfl3ui" path="res://components/authority_checker.gd" id="2_bectd"]
+[ext_resource type="PackedScene" path="res://3d_objects/knight/animated_model.tscn" id="2_26q78"]
+[ext_resource type="Script" path="res://components/authority_checker.gd" id="2_bectd"]
 [ext_resource type="PackedScene" uid="uid://bb30gdt6q8ij" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCamera.tscn" id="2_bls4j"]
 [ext_resource type="PackedScene" uid="uid://dgmj4cxp8xi62" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCrouch.tscn" id="3_fkugw"]
 [ext_resource type="PackedScene" uid="uid://be7h2lkvpihn3" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeMovement.tscn" id="4_8fjmc"]
@@ -50,7 +50,6 @@ target = NodePath("../knight_animated_model")
 dict = Dictionary[String, Variant]({
 "visible": false
 })
-metadata/_custom_type_script = "uid://b33klq6nfl3ui"
 
 [node name="SD_NetSynchronizer" type="Node" parent="."]
 script = ExtResource("5_qiwj3")
