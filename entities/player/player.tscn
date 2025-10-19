@@ -1,14 +1,33 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5mamk8v0a5ok"]
+[gd_scene load_steps=13 format=3 uid="uid://b5mamk8v0a5ok"]
 
 [ext_resource type="Script" uid="uid://478voqxy4st" path="res://entities/player/player.gd" id="1_symyc"]
 [ext_resource type="PackedScene" uid="uid://bb30gdt6q8ij" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCamera.tscn" id="2_bls4j"]
 [ext_resource type="PackedScene" uid="uid://dgmj4cxp8xi62" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCrouch.tscn" id="3_fkugw"]
 [ext_resource type="PackedScene" uid="uid://be7h2lkvpihn3" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeMovement.tscn" id="4_8fjmc"]
+[ext_resource type="Script" uid="uid://blbs0u7qkn6if" path="res://addons/simusdev/network/SD_NetSynchronizer.gd" id="5_qiwj3"]
+[ext_resource type="Script" uid="uid://cydp7kjf4ce6r" path="res://addons/simusdev/network/SD_NetSyncedProperty.gd" id="6_26q78"]
+[ext_resource type="Script" uid="uid://dii7n6tf0gs6q" path="res://addons/simusdev/network/SD_NetSyncProperties.gd" id="7_bectd"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_symyc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_symyc"]
+size = Vector3(1, 2.016529, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qiwj3"]
 size = Vector3(1, 1.3195343, 1)
+
+[sub_resource type="Resource" id="Resource_wvtmh"]
+script = ExtResource("6_26q78")
+properties = PackedStringArray("transform")
+interpolation_enabled = true
+node_path = NodePath("..")
+sync = 0
+metadata/_custom_type_script = "uid://cydp7kjf4ce6r"
+
+[sub_resource type="Resource" id="Resource_7thud"]
+script = ExtResource("7_bectd")
+_list = Array[ExtResource("6_26q78")]([SubResource("Resource_wvtmh")])
+metadata/_custom_type_script = "uid://dii7n6tf0gs6q"
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_symyc")
@@ -18,12 +37,12 @@ metadata/_custom_type_script = "uid://478voqxy4st"
 mesh = SubResource("CapsuleMesh_symyc")
 
 [node name="normal" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.012130737, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.008188248, 0)
 shape = SubResource("BoxShape3D_symyc")
 
 [node name="crouch" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18226421, 0)
-shape = SubResource("BoxShape3D_symyc")
+shape = SubResource("BoxShape3D_qiwj3")
 
 [node name="Camera" parent="." node_paths=PackedStringArray("body") instance=ExtResource("2_bls4j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60393834, 0.009204388)
@@ -58,3 +77,8 @@ key_crouch = "crouch"
 [node name="ceiling_detect" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.110461116, 0)
 target_position = Vector3(0, 2, 0)
+
+[node name="SD_NetSynchronizer" type="Node" parent="."]
+script = ExtResource("5_qiwj3")
+_data = SubResource("Resource_7thud")
+metadata/_custom_type_script = "uid://blbs0u7qkn6if"

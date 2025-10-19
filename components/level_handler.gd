@@ -58,6 +58,7 @@ func _change_to_local(level: R_Level) -> void:
 		_node.queue_free()
 		await get_tree().process_frame
 	
+	_current = level
 	_node = scene.instantiate()
 	_node.name = "level"
 	root.add_child(_node)
