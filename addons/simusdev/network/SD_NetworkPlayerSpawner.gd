@@ -26,7 +26,8 @@ func _ready() -> void:
 	if SD_Network.is_server():
 		SD_Network.singleton.on_player_connected.connect(_on_player_connected)
 		SD_Network.singleton.on_player_disconnected.connect(_on_player_disconnected)
-		_on_player_connected(SD_NetworkPlayer.get_local())
+		for p in SD_Network.get_connected_players():
+			_on_player_connected(p)
 	
 	spawner.synchronize_all()
 
