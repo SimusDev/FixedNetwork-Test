@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="R_Level" load_steps=2 format=3 uid="uid://c64aki8djendt"]
+
+[ext_resource type="Script" uid="uid://cv0smn06yari8" path="res://components/r_level.gd" id="1_4a6dt"]
+
+[resource]
+script = ExtResource("1_4a6dt")
+name = "test"
+description = "PISKA"
+path = "scenes/test"
+metadata/_custom_type_script = "uid://cv0smn06yari8"

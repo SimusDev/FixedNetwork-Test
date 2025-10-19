@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyldlrrk2wxqu"]
+
+[ext_resource type="Script" uid="uid://2vthsh3ttoov" path="res://singletons/s_Levels.gd" id="1_5qcxb"]
+
+[node name="Levels" type="Node"]
+script = ExtResource("1_5qcxb")
+path = "res://levels"
