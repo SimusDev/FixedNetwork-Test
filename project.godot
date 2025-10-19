@@ -35,6 +35,7 @@ Shortcuts/density_decrement=Object(Shortcut,"resource_local_to_scene":false,"res
 [application]
 
 config/name="FixedNetwork-Test"
+run/main_scene="uid://bi0mt5ete4l6v"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
