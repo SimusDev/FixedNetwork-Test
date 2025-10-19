@@ -31,9 +31,10 @@ size = Vector3(0.8, 1.7, 0.8)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qiwj3"]
 size = Vector3(0.8, 1.1, 0.8)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("model")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("model", "state_machine")]
 script = ExtResource("1_symyc")
 model = NodePath("knight_animated_model")
+state_machine = NodePath("Movement/state_machine")
 metadata/_custom_type_script = "uid://478voqxy4st"
 
 [node name="AuthorityChecker" type="Node" parent="." node_paths=PackedStringArray("target")]
@@ -98,3 +99,6 @@ key_crouch = "crouch"
 [node name="ceiling_detect" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.110461116, 0)
 target_position = Vector3(0, 2, 0)
+
+[editable path="Camera"]
+[editable path="Movement"]

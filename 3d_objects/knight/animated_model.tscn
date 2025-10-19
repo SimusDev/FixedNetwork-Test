@@ -8,7 +8,7 @@
 [node name="knight_animated_model" type="Node3D" node_paths=PackedStringArray("root", "model", "tree", "player", "skeleton")]
 script = ExtResource("1_u6sc6")
 state_machine_properties = Dictionary[String, String]({
-"moving": "blend_position"
+"walk": "blend_position"
 })
 state_exceptions = Array[String]([""])
 root = NodePath("..")
@@ -33,7 +33,7 @@ libraries = {
 root_node = NodePath("../model3d")
 tree_root = ExtResource("4_mvknl")
 anim_player = NodePath("../AnimationPlayer")
-parameters/StateMachine/moving/blend_position = Vector2(0, 0)
+parameters/StateMachine/walk/blend_position = Vector2(-0.0026246905, 0.0013363361)
 parameters/OneShot/active = false
 parameters/OneShot/internal_active = false
 parameters/OneShot/request = 0
