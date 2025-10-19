@@ -17,6 +17,7 @@ func _ready() -> void:
 		spawner = SD_NetworkSpawner.new()
 		spawner.sync_at_start = false
 		spawner.name = "spawner"
+		spawner.register(root)
 		add_child(spawner)
 	
 	spawner.sync_at_start = false
@@ -47,6 +48,9 @@ func pick_spawnpoint() -> Node:
 	return spawnpoints.pick_random()
 
 func _on_player_connected(player: SD_NetworkPlayer) -> void:
+	if root.has_node(str(player.get_peer_id())):
+		return
+	
 	var prefab: PackedScene = pick_prefab()
 	if not prefab:
 		return
@@ -55,6 +59,7 @@ func _on_player_connected(player: SD_NetworkPlayer) -> void:
 	player.set_in(instance)
 	instance.name = str(player.get_peer_id())
 	root.add_child(instance)
+	
 	_teleport_node(instance, pick_spawnpoint())
 
 func _on_player_disconnected(player: SD_NetworkPlayer) -> void:
