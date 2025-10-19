@@ -21,7 +21,7 @@ player = NodePath("AnimationPlayer")
 skeleton = NodePath("model3d/Armature/Skeleton3D")
 metadata/_custom_type_script = "uid://cp7ydq8h3aj1b"
 
-[node name="model3d" type="Node3D" parent="." instance=ExtResource("2_qc2wd")]
+[node name="model3d" parent="." instance=ExtResource("2_qc2wd")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../model3d")
