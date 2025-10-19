@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://1q3261e7f2vy"]
+
+[ext_resource type="Script" uid="uid://cp7ydq8h3aj1b" path="res://components/animated_model.gd" id="1_u6sc6"]
+[ext_resource type="PackedScene" uid="uid://dwokg4jak63or" path="res://3d_objects/knight/scene.tscn" id="2_qc2wd"]
+[ext_resource type="AnimationLibrary" uid="uid://dug3cam5fy3bm" path="res://3d_objects/knight/animation/library.res" id="3_u40k2"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://dj8uyhj24nhuf" path="res://3d_objects/knight/blend_tree.res" id="4_mvknl"]
+
+[node name="knight_animated_model" type="Node3D" node_paths=PackedStringArray("root", "model", "tree", "player", "skeleton")]
+script = ExtResource("1_u6sc6")
+state_machine_properties = Dictionary[String, String]({
+"moving": "blend_position"
+})
+state_exceptions = Array[String]([""])
+root = NodePath("..")
+model_scene = ExtResource("2_qc2wd")
+library = ExtResource("3_u40k2")
+blend_tree = ExtResource("4_mvknl")
+model = NodePath("model3d")
+tree = NodePath("AnimationTree")
+player = NodePath("AnimationPlayer")
+skeleton = NodePath("model3d/Armature/Skeleton3D")
+metadata/_custom_type_script = "uid://cp7ydq8h3aj1b"
+
+[node name="model3d" type="Node3D" parent="." instance=ExtResource("2_qc2wd")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../model3d")
+libraries = {
+&"library": ExtResource("3_u40k2")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../model3d")
+tree_root = ExtResource("4_mvknl")
+anim_player = NodePath("../AnimationPlayer")
+parameters/StateMachine/moving/blend_position = Vector2(0, 0)
+parameters/OneShot/active = false
+parameters/OneShot/internal_active = false
+parameters/OneShot/request = 0
+parameters/AttackAnimationSpeed/scale = 1.0
