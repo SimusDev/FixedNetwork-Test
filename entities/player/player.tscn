@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5mamk8v0a5ok"]
+[gd_scene load_steps=16 format=3 uid="uid://b5mamk8v0a5ok"]
 
 [ext_resource type="Script" uid="uid://478voqxy4st" path="res://entities/player/player.gd" id="1_symyc"]
 [ext_resource type="PackedScene" uid="uid://1q3261e7f2vy" path="res://3d_objects/knight/animated_model.tscn" id="2_26q78"]
@@ -18,9 +18,16 @@ node_path = NodePath("..")
 sync = 0
 metadata/_custom_type_script = "uid://cydp7kjf4ce6r"
 
+[sub_resource type="Resource" id="Resource_bectd"]
+script = ExtResource("6_26q78")
+properties = PackedStringArray("velocity")
+node_path = NodePath("..")
+sync = 0
+metadata/_custom_type_script = "uid://cydp7kjf4ce6r"
+
 [sub_resource type="Resource" id="Resource_7thud"]
 script = ExtResource("7_bectd")
-_list = Array[ExtResource("6_26q78")]([SubResource("Resource_wvtmh")])
+_list = Array[ExtResource("6_26q78")]([SubResource("Resource_wvtmh"), SubResource("Resource_bectd")])
 metadata/_custom_type_script = "uid://dii7n6tf0gs6q"
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_symyc"]
