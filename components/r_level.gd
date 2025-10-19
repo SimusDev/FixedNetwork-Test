@@ -11,7 +11,8 @@ func _loaded() -> void:
 		settings = R_LevelSettings.new()
 
 func _changed_in_game() -> void:
-	pass
+	if settings:
+		settings._level_loaded()
 
 func get_code() -> String:
 	return name

@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5mamk8v0a5ok"]
+
+[ext_resource type="Script" uid="uid://478voqxy4st" path="res://entities/player/player.gd" id="1_symyc"]
+[ext_resource type="PackedScene" uid="uid://bb30gdt6q8ij" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCamera.tscn" id="2_bls4j"]
+[ext_resource type="PackedScene" uid="uid://dgmj4cxp8xi62" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCrouch.tscn" id="3_fkugw"]
+[ext_resource type="PackedScene" uid="uid://be7h2lkvpihn3" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeMovement.tscn" id="4_8fjmc"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_symyc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_symyc"]
+size = Vector3(1, 2.0101624, 1)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_symyc")
+metadata/_custom_type_script = "uid://478voqxy4st"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_symyc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.012130737, 0)
+shape = SubResource("BoxShape3D_symyc")
+
+[node name="Camera" parent="." node_paths=PackedStringArray("body") instance=ExtResource("2_bls4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60393834, 0.009204388)
+body = NodePath("..")
+key_forward = "forward"
+key_backward = "backward"
+key_left = "left"
+key_right = "right"
+key_boost = "sprint"
+key_slowdown = "crouch"
+
+[node name="Crouch" parent="." node_paths=PackedStringArray("camera", "movement", "collision_normal", "collision_crouch", "ceiling_detection", "crouch_camera_position") instance=ExtResource("3_fkugw")]
+camera = NodePath("../Camera")
+movement = NodePath("../Movement")
+collision_normal = NodePath("../CollisionShape3D")
+collision_crouch = NodePath("../CollisionShape3D")
+ceiling_detection = NodePath("../ceiling_detect")
+crouch_camera_position = NodePath("../crouch_campos")
+
+[node name="Movement" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("4_8fjmc")]
+actor = NodePath("..")
+key_forward = "forward"
+key_backward = "backward"
+key_left = "left"
+key_right = "right"
+key_jump = "jump"
+key_sprint = "sprint"
+key_crouch = "crouch"
+
+[node name="crouch_campos" type="Node3D" parent="."]
+
+[node name="ceiling_detect" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.110461116, 0)
+target_position = Vector3(0, 2, 0)

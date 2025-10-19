@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="R_NormalMode" load_steps=2 format=3 uid="uid://bnvrgd3ukgnts"]
+
+[ext_resource type="Script" uid="uid://rnqjwvseulu7" path="res://level_settings/normal.gd" id="1_bqidx"]
+
+[resource]
+script = ExtResource("1_bqidx")
+metadata/_custom_type_script = "uid://rnqjwvseulu7"

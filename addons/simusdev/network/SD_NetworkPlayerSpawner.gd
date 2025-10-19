@@ -15,6 +15,7 @@ func _ready() -> void:
 	
 	if not spawner:
 		spawner = SD_NetworkSpawner.new()
+		spawner.sync_at_start = false
 		spawner.name = "spawner"
 		add_child(spawner)
 	
@@ -25,6 +26,7 @@ func _ready() -> void:
 	if SD_Network.is_server():
 		SD_Network.singleton.on_player_connected.connect(_on_player_connected)
 		SD_Network.singleton.on_player_disconnected.connect(_on_player_disconnected)
+		_on_player_connected(SD_NetworkPlayer.get_local())
 	
 	spawner.synchronize_all()
 
