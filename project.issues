@@ -1,0 +1,21 @@
+{
+	"version": 1,
+	"meta": {
+		"tag_colors": {
+
+		}
+	},
+	"issues": {
+		"sex": [
+			{
+				"text": "",
+				"tags": [
+					"7-8"
+				],
+				"timestamp": 1760917355.416,
+				"priority": 0.0,
+				"estimate": 4096
+			}
+		]
+	}
+}
