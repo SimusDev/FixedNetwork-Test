@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://b5mamk8v0a5ok"]
+[gd_scene load_steps=15 format=3 uid="uid://b5mamk8v0a5ok"]
 
 [ext_resource type="Script" uid="uid://478voqxy4st" path="res://entities/player/player.gd" id="1_symyc"]
-[ext_resource type="PackedScene" uid="uid://1q3261e7f2vy" path="res://3d_objects/knight/animated_model.tscn" id="2_26q78"]
 [ext_resource type="Script" uid="uid://b33klq6nfl3ui" path="res://components/authority_checker.gd" id="2_bectd"]
 [ext_resource type="PackedScene" uid="uid://bb30gdt6q8ij" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCamera.tscn" id="2_bls4j"]
 [ext_resource type="PackedScene" uid="uid://dgmj4cxp8xi62" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCrouch.tscn" id="3_fkugw"]
@@ -40,26 +39,18 @@ size = Vector3(0.8, 1.1, 0.8)
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("model", "state_machine")]
 script = ExtResource("1_symyc")
-model = NodePath("knight_animated_model")
+model = NodePath("")
 state_machine = NodePath("Movement/state_machine")
 metadata/_custom_type_script = "uid://478voqxy4st"
 
-[node name="AuthorityChecker" type="Node" parent="." node_paths=PackedStringArray("target")]
+[node name="AuthorityChecker" type="Node" parent="."]
 script = ExtResource("2_bectd")
-target = NodePath("../knight_animated_model")
-dict = Dictionary[String, Variant]({
-"visible": false
-})
 metadata/_custom_type_script = "uid://b33klq6nfl3ui"
 
 [node name="SD_NetSynchronizer" type="Node" parent="."]
 script = ExtResource("5_qiwj3")
 _data = SubResource("Resource_7thud")
 metadata/_custom_type_script = "uid://blbs0u7qkn6if"
-
-[node name="knight_animated_model" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_26q78")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-target = NodePath("..")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false

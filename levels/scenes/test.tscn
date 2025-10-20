@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://b4f7gug0xwa5r"]
 
+[ext_resource type="PackedScene" uid="uid://16hwos6yys1e" path="res://entities/skeleton/player.tscn" id="2_l8ipj"]
 [ext_resource type="Script" uid="uid://7x2il2vfpoep" path="res://addons/simusdev/network/SD_NetworkPlayerSpawner.gd" id="2_ryywh"]
-[ext_resource type="PackedScene" uid="uid://b5mamk8v0a5ok" path="res://entities/player/player.tscn" id="3_3adxs"]
 [ext_resource type="Texture2D" uid="uid://c57qojkl1mdm6" path="res://textures/base/grass.jpg" id="3_typj7"]
 [ext_resource type="PackedScene" uid="uid://dx7fw36narv82" path="res://3d_objects/dead_tree1/scene.tscn" id="4_l8ipj"]
 [ext_resource type="PackedScene" uid="uid://ltaagu5baotp" path="res://3d_objects/live_tree2/scene.tscn" id="5_nx6y5"]
@@ -123,7 +123,7 @@ tonemap_white = 6.0
 [node name="SD_NetworkPlayerSpawner" type="Node" parent="." node_paths=PackedStringArray("root", "spawnpoints")]
 script = ExtResource("2_ryywh")
 root = NodePath("../players")
-scenes = Array[PackedScene]([ExtResource("3_3adxs")])
+scenes = Array[PackedScene]([ExtResource("2_l8ipj")])
 spawnpoints = [NodePath("../players")]
 metadata/_custom_type_script = "uid://7x2il2vfpoep"
 
