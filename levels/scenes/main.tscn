@@ -16,6 +16,22 @@
 [ext_resource type="Script" uid="uid://deo0gxkmk2ahd" path="res://addons/sky_3d/src/Sky3D.gd" id="14_gmd4b"]
 [ext_resource type="Script" uid="uid://b4tkplvh7fq40" path="res://addons/sky_3d/src/Skydome.gd" id="15_711uj"]
 [ext_resource type="Script" uid="uid://cjmkcj8hwm7ts" path="res://addons/sky_3d/src/TimeOfDay.gd" id="16_qntcr"]
+[ext_resource type="PackedScene" uid="uid://16hwos6yys1e" path="res://entities/skeleton/player.tscn" id="2_l8ipj"]
+[ext_resource type="Script" uid="uid://7x2il2vfpoep" path="res://addons/simusdev/network/SD_NetworkPlayerSpawner.gd" id="2_ryywh"]
+[ext_resource type="Texture2D" uid="uid://c57qojkl1mdm6" path="res://textures/base/grass.jpg" id="3_typj7"]
+[ext_resource type="PackedScene" uid="uid://dx7fw36narv82" path="res://3d_objects/dead_tree1/scene.tscn" id="4_l8ipj"]
+[ext_resource type="PackedScene" uid="uid://ltaagu5baotp" path="res://3d_objects/live_tree2/scene.tscn" id="5_nx6y5"]
+[ext_resource type="PackedScene" uid="uid://bhbvkdmec6fm7" path="res://3d_objects/live_tree1/scene.tscn" id="6_l8ipj"]
+[ext_resource type="Shader" uid="uid://cvd0x7lon1ur6" path="res://addons/sky_3d/shaders/SkyMaterial.gdshader" id="6_oj8qw"]
+[ext_resource type="Texture2D" uid="uid://c1vwcdcdvb74a" path="res://addons/sky_3d/assets/thirdparty/textures/milkyway/Milkyway.jpg" id="7_dgbx1"]
+[ext_resource type="Texture2D" uid="uid://cfqk60lpl5ljv" path="res://addons/sky_3d/assets/resources/SNoise.tres" id="8_0x4o1"]
+[ext_resource type="Texture2D" uid="uid://cecwdqjol0ckd" path="res://addons/sky_3d/assets/textures/noiseClouds.png" id="9_gxdrl"]
+[ext_resource type="Texture2D" uid="uid://2r8ylu6rg5dp" path="res://addons/sky_3d/assets/thirdparty/textures/moon/MoonMap.png" id="10_l7d8a"]
+[ext_resource type="Texture2D" uid="uid://djpfuyxkryegn" path="res://addons/sky_3d/assets/textures/noise.jpg" id="11_h37ai"]
+[ext_resource type="Texture2D" uid="uid://bm7dot7t7u1q4" path="res://addons/sky_3d/assets/thirdparty/textures/milkyway/StarField.jpg" id="12_vej8l"]
+[ext_resource type="Script" uid="uid://deo0gxkmk2ahd" path="res://addons/sky_3d/src/Sky3D.gd" id="13_3ni03"]
+[ext_resource type="Script" uid="uid://b4tkplvh7fq40" path="res://addons/sky_3d/src/Skydome.gd" id="14_simxq"]
+[ext_resource type="Script" uid="uid://cjmkcj8hwm7ts" path="res://addons/sky_3d/src/TimeOfDay.gd" id="15_m44h3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5axgr"]
 albedo_texture = ExtResource("3_c4hcu")
@@ -124,6 +140,7 @@ tonemap_white = 6.0
 script = ExtResource("1_41dqw")
 root = NodePath("../players")
 scenes = Array[PackedScene]([ExtResource("2_f3rtc")])
+scenes = Array[PackedScene]([ExtResource("2_l8ipj")])
 spawnpoints = [NodePath("../players")]
 metadata/_custom_type_script = "uid://7x2il2vfpoep"
 
