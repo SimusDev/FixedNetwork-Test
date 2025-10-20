@@ -1,6 +1,7 @@
 extends Node
 class_name LevelHandler
 
+@export var game_scene: Node
 @export var root: Node
 @export var initial: R_Level
 @onready var cmd: SD_ConsoleCommand = SD_ConsoleCommand.get_or_create("level.change")
@@ -15,6 +16,8 @@ func get_current_node() -> Node:
 	return _node
 
 func _ready() -> void:
+	await game_scene.ready
+	
 	SD_Network.register_object(self)
 	SD_Network.register_functions([
 		_send,

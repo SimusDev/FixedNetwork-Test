@@ -1,5 +1,5 @@
 {
-	"version": 1,
+	"version": 1.0,
 	"meta": {
 		"tag_colors": {
 
@@ -14,7 +14,7 @@
 				],
 				"timestamp": 1760917355.416,
 				"priority": 0.0,
-				"estimate": 4096
+				"estimate": 4096.0
 			}
 		]
 	}
