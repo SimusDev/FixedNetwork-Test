@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxvkyhwtmx0gb"]
+
+[ext_resource type="Texture2D" uid="uid://jh71v4na0wbg" path="res://3d_objects/dead_tree1/model_0.png" id="1_lfdng"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qh4pa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tykqm"]
+albedo_texture = ExtResource("1_lfdng")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lfdng"]
+
+[node name="Box" type="RigidBody3D"]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+mesh = SubResource("BoxMesh_qh4pa")
+material = SubResource("StandardMaterial3D_tykqm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_lfdng")

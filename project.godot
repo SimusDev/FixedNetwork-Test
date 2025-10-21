@@ -46,6 +46,11 @@ SimusDev="*res://addons/simusdev/singletons/s_simusdev.tscn"
 Game="*res://singletons/s_Game.tscn"
 Levels="*res://singletons/s_Levels.tscn"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/YouCanDoIt/plugin.cfg", "res://addons/fancy_editor_sounds/plugin.cfg", "res://addons/mixamo_animation_retargeter/plugin.cfg", "res://addons/simplegrasstextured/plugin.cfg", "res://addons/simusdev/plugin.cfg", "res://addons/sky_3d/plugin.cfg", "res://addons/sticky_scribe/plugin.cfg")
