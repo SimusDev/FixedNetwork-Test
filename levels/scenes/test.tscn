@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b4f7gug0xwa5r"]
+[gd_scene load_steps=24 format=3 uid="uid://cjigts0r234rx"]
 
 [ext_resource type="PackedScene" uid="uid://16hwos6yys1e" path="res://entities/skeleton/player.tscn" id="2_l8ipj"]
 [ext_resource type="Script" uid="uid://7x2il2vfpoep" path="res://addons/simusdev/network/SD_NetworkPlayerSpawner.gd" id="2_ryywh"]
