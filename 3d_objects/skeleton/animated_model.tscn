@@ -10,6 +10,7 @@ script = ExtResource("1_nhv1b")
 state_machine_properties = Dictionary[String, String]({
 "walk": "blend_position"
 })
+state_exceptions = Array[String](["run", "air_sprint"])
 root = NodePath("..")
 model_scene = ExtResource("2_1cfhy")
 library = ExtResource("3_e7sj3")
