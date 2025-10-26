@@ -16,20 +16,17 @@ target = NodePath("..")
 [node name="AnimationTree" parent="AnimatedModel" index="2"]
 parameters/StateMachine/walk/blend_position = Vector2(0.000874877, 0.007766843)
 
-[node name="AuthorityChecker" parent="." index="1" node_paths=PackedStringArray("target")]
+[node name="AuthorityChecker" parent="." index="2" node_paths=PackedStringArray("target")]
 target = NodePath("../AnimatedModel")
-dict = Dictionary[String, Variant]({
-"visible": true
-})
 
-[node name="crouch" parent="." index="5"]
+[node name="crouch" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63071287, 0)
 shape = SubResource("BoxShape3D_hlu63")
 
-[node name="Movement" parent="." index="8"]
+[node name="Movement" parent="." index="9"]
 _sprint_speed = 7.0
 
-[node name="crouch_campos" parent="." index="9"]
+[node name="crouch_campos" parent="." index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1928333, 0)
 
 [editable path="AnimatedModel"]

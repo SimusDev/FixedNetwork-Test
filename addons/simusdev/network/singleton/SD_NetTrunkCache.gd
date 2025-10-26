@@ -88,6 +88,14 @@ func get_cached_methods() -> PackedStringArray:
 	cache.set("m", methods)
 	return methods
 
+func get_cached_variables() -> PackedStringArray:
+	var cache := singleton.cache_get()
+	if cache.has("v"):
+		return cache["v"]
+	var methods: PackedStringArray = PackedStringArray()
+	cache.set("v", methods)
+	return methods
+
 func cache_method(method: Callable) -> void:
 	var methods: PackedStringArray = get_cached_methods()
 	var m_name: String = method.get_method()
@@ -100,12 +108,31 @@ func cache_method(method: Callable) -> void:
 	
 	_cache_method_rpc.rpc(m_name)
 
+
 @rpc("call_local", "any_peer", "reliable")
 func _cache_method_rpc(method_name: String) -> void:
 	if SD_Network.is_server():
 		return
 	
 	get_cached_methods().append(method_name)
+
+func cache_variable(variable: String) -> void:
+	var variables: PackedStringArray = get_cached_variables()
+	if variables.has(variable):
+		return
+	
+	variables.append(variable)
+	
+	debug_print("variable cached: %s" % variable)
+	
+	_cache_variable_rpc.rpc(variable)
+
+@rpc("call_local", "any_peer", "reliable")
+func _cache_variable_rpc(variable: String) -> void:
+	if SD_Network.is_server():
+		return
+	
+	get_cached_variables().append(variable)
 
 func serialize_method(callable: Callable) -> Variant:
 	var id: int = get_cached_methods().find(callable.get_method())

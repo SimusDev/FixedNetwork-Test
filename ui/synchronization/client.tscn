@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtbeifl5rg0pc"]
+
+[ext_resource type="Script" uid="uid://bh7brbi1if0jf" path="res://ui/synchronization/client.gd" id="1_67cjx"]
+[ext_resource type="Script" uid="uid://d1l1jkmj6s53f" path="res://addons/simusdev/ui/SD_UIInterfaceMenu.gd" id="2_16cfh"]
+
+[node name="Client" type="CanvasLayer"]
+layer = 78
+visible = false
+script = ExtResource("1_67cjx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="SD_UIInterfaceMenu" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("2_16cfh")
+target = NodePath("../ColorRect")
+open_at_start = true
+close_on_escape = false
+metadata/_custom_type_script = "uid://d1l1jkmj6s53f"

@@ -45,6 +45,7 @@ SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
 SimusDev="*res://addons/simusdev/singletons/s_simusdev.tscn"
 Game="*res://singletons/s_Game.tscn"
 Levels="*res://singletons/s_Levels.tscn"
+Synchronization="*res://singletons/s_Synchronization.gd"
 
 [display]
 

@@ -8,6 +8,15 @@ static var _reference_list: Array[R_Object] = []
 @export var tab: R_ObjectTab
 @export var viewmodel: R_ViewModel
 
+static func get_references() -> Dictionary[String, R_Object]:
+	return _references
+
+static func get_reference_list() -> Array[R_Object]:
+	return _reference_list
+
+static func find_by_id(obj_id: String) -> R_Object:
+	return _references.get(obj_id)
+
 func register() -> void:
 	if not viewmodel:
 		viewmodel = R_ViewModel.get_placeholder()
