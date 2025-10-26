@@ -2,8 +2,14 @@ extends Node
 class_name InventorySlot
 
 @export var _parameters: Dictionary = {}
+@export var selectable: bool = false
 
 var _item: ItemStack
+
+signal on_item_added(slot: InventorySlot)
+signal on_item_removed(slot: InventorySlot)
+
+var id: int = -1
 
 func get_inventory() -> Inventory:
 	return get_parent()
@@ -15,6 +21,7 @@ func _enter_tree() -> void:
 	name = name.validate_node_name()
 	
 	get_inventory()._slots.append(self)
+	id = get_inventory().get_slots().find(self)
 
 func _exit_tree() -> void:
 	get_inventory()._slots.erase(self)
@@ -26,6 +33,7 @@ func serialize() -> Dictionary:
 	var data: Dictionary = {}
 	data.n = name
 	data.p = _parameters
+	data.s = selectable
 	var classname: String = SD_Variables.get_class_from(self)
 	if classname != "InventorySlot":
 		data.c = SD_Variables.get_class_from(self)
@@ -39,6 +47,7 @@ static func deserialize(data: Dictionary) -> InventorySlot:
 	var slot: InventorySlot = SD_Variables.instantiate_class(data.get("c", "InventorySlot"))
 	slot._parameters = data.p
 	slot.name = data.n
+	slot.selectable = data.s
 	
 	if data.has("i"):
 		var itemstack: ItemStack = ItemStack.deserialize(data.i)
