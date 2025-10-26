@@ -25,9 +25,13 @@ func _enter_tree() -> void:
 	name = name.validate_node_name()
 	
 	get_slot()._item = self
+	get_slot().on_item_added.emit(self)
+	get_inventory().on_item_added.emit(self)
 
 func _exit_tree() -> void:
 	get_slot()._item = null
+	get_slot().on_item_removed.emit(self)
+	get_inventory().on_item_removed.emit(self)
 
 func serialize() -> Dictionary:
 	var data: Dictionary = {}

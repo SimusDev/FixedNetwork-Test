@@ -11,9 +11,9 @@
 [ext_resource type="Script" uid="uid://blbs0u7qkn6if" path="res://addons/simusdev/network/SD_NetSynchronizer.gd" id="5_qiwj3"]
 [ext_resource type="Script" uid="uid://cydp7kjf4ce6r" path="res://addons/simusdev/network/SD_NetSyncedProperty.gd" id="6_26q78"]
 [ext_resource type="Script" uid="uid://dii7n6tf0gs6q" path="res://addons/simusdev/network/SD_NetSyncProperties.gd" id="7_bectd"]
+[ext_resource type="Script" uid="uid://dx2txo03tewr" path="res://components/entity_input.gd" id="7_j3ovn"]
 [ext_resource type="Script" uid="uid://faep2pp2odh5" path="res://components/inventory.gd" id="9_bectd"]
-[ext_resource type="Script" uid="uid://dy5g2vendwh3" path="res://components/health_component.gd" id="13_j3ovn"]
-[ext_resource type="Script" uid="uid://c3imh0u57248h" path="res://components/mana_component.gd" id="14_afbqv"]
+[ext_resource type="Script" uid="uid://cn34mh8bewwh0" path="res://components/entity_raycast.gd" id="12_afbqv"]
 
 [sub_resource type="Resource" id="Resource_wvtmh"]
 script = ExtResource("6_26q78")
@@ -43,7 +43,7 @@ size = Vector3(0.8, 1.7, 0.8)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qiwj3"]
 size = Vector3(0.8, 1.1, 0.8)
 
-[node name="Player2" type="CharacterBody3D" node_paths=PackedStringArray("state_machine")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("state_machine")]
 script = ExtResource("1_symyc")
 state_machine = NodePath("Movement/state_machine")
 metadata/_custom_type_script = "uid://478voqxy4st"
@@ -56,6 +56,8 @@ metadata/_custom_type_script = "uid://faep2pp2odh5"
 
 [node name="1" type="Node" parent="Inventory"]
 script = ExtResource("3_wvtmh")
+selectable = true
+metadata/_custom_type_script = "uid://bbdmr5acmnvg7"
 
 [node name="ItemStack" type="Node" parent="Inventory/1"]
 script = ExtResource("4_7thud")
@@ -64,26 +66,28 @@ metadata/_custom_type_script = "uid://41i8505osgrs"
 
 [node name="2" type="Node" parent="Inventory"]
 script = ExtResource("3_wvtmh")
+selectable = true
+metadata/_custom_type_script = "uid://bbdmr5acmnvg7"
 
 [node name="3" type="Node" parent="Inventory"]
 script = ExtResource("3_wvtmh")
+selectable = true
+metadata/_custom_type_script = "uid://bbdmr5acmnvg7"
 
 [node name="4" type="Node" parent="Inventory"]
 script = ExtResource("3_wvtmh")
+selectable = true
+metadata/_custom_type_script = "uid://bbdmr5acmnvg7"
 
 [node name="5" type="Node" parent="Inventory"]
 script = ExtResource("3_wvtmh")
+selectable = true
+metadata/_custom_type_script = "uid://bbdmr5acmnvg7"
 
 [node name="6" type="Node" parent="Inventory"]
 script = ExtResource("3_wvtmh")
-
-[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("target")]
-script = ExtResource("13_j3ovn")
-target = NodePath("..")
-
-[node name="ManaComponent" type="Node" parent="." node_paths=PackedStringArray("target")]
-script = ExtResource("14_afbqv")
-target = NodePath("..")
+selectable = true
+metadata/_custom_type_script = "uid://bbdmr5acmnvg7"
 
 [node name="AuthorityChecker" type="Node" parent="."]
 script = ExtResource("2_bectd")
@@ -91,6 +95,11 @@ target = NodePath("../knight_animated_model")
 dict = Dictionary[String, Variant]({
 "visible": false
 })
+
+[node name="EntityInput" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("7_j3ovn")
+root = NodePath("..")
+metadata/_custom_type_script = "uid://dx2txo03tewr"
 
 [node name="SD_NetSynchronizer" type="Node" parent="."]
 script = ExtResource("5_qiwj3")
@@ -118,6 +127,14 @@ key_left = "left"
 key_right = "right"
 key_boost = "sprint"
 key_slowdown = "crouch"
+
+[node name="EntityRayCast3D" type="RayCast3D" parent="Camera" node_paths=PackedStringArray("root")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.485919)
+target_position = Vector3(0, 0, -2)
+collide_with_areas = true
+script = ExtResource("12_afbqv")
+root = NodePath("../..")
+metadata/_custom_type_script = "uid://cn34mh8bewwh0"
 
 [node name="Crouch" parent="." node_paths=PackedStringArray("camera", "movement", "collision_normal", "collision_crouch", "ceiling_detection", "crouch_camera_position") instance=ExtResource("3_fkugw")]
 camera = NodePath("../Camera")

@@ -1,22 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://bi0mt5ete4l6v"]
+[gd_scene load_steps=8 format=3 uid="uid://bi0mt5ete4l6v"]
 
 [ext_resource type="Script" uid="uid://be0giffmeqdmm" path="res://scenes/game.gd" id="1_lnu2h"]
 [ext_resource type="Script" uid="uid://1fd0h7m5nrp0" path="res://components/level_handler.gd" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://dtbeifl5rg0pc" path="res://ui/synchronization/client.tscn" id="2_gee14"]
 [ext_resource type="Script" uid="uid://b3swx4qta4i6b" path="res://components/gameworld3d.gd" id="2_u5sy4"]
 [ext_resource type="Resource" uid="uid://c64aki8djendt" path="res://levels/main.tres" id="2_yqjtg"]
 [ext_resource type="Script" uid="uid://df46qn6g1k5f0" path="res://components/object_handler.gd" id="4_iywne"]
 [ext_resource type="Script" uid="uid://byuvvccvjkyhx" path="res://components/level3d.gd" id="4_p57ef"]
-[ext_resource type="Script" path="res://components/gameworld3d.gd" id="2_u5sy4"]
-[ext_resource type="Resource" path="res://levels/main.tres" id="2_yqjtg"]
-[ext_resource type="Script" path="res://components/object_handler.gd" id="4_iywne"]
-[ext_resource type="Script" path="res://components/level3d.gd" id="4_p57ef"]
 [ext_resource type="Resource" uid="uid://bg4t4s6ofaiy7" path="res://tabs/tab_object.tres" id="5_p57ef"]
 
 [node name="GameScene" type="Node3D"]
 script = ExtResource("1_lnu2h")
-
-[node name="Client" parent="." instance=ExtResource("2_gee14")]
 
 [node name="ObjectHandler" type="Node" parent="."]
 process_priority = 1
