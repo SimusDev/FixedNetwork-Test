@@ -3,9 +3,6 @@ extends Control
 @onready var health_bar:ProgressBar = get_node("health_bar")
 @onready var health_value:Label = health_bar.get_node("health_value")
 
-@onready var mana_bar:ProgressBar = get_node("mana_bar")
-@onready var mana_value:Label = mana_bar.get_node("mana_value")
-
 var player:Player
 
 func _ready() -> void:

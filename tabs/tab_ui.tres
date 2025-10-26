@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="R_ObjectTab" load_steps=2 format=3 uid="uid://dnae8tsk48p74"]
+
+[ext_resource type="Script" uid="uid://bbhp433ah41k4" path="res://components/r_object_tab.gd" id="1_23x1e"]
+
+[resource]
+script = ExtResource("1_23x1e")
+name = &"ui"
+metadata/_custom_type_script = "uid://bbhp433ah41k4"

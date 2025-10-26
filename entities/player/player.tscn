@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bbdmr5acmnvg7" path="res://components/inventory_slot.gd" id="3_wvtmh"]
 [ext_resource type="Script" uid="uid://41i8505osgrs" path="res://components/itemstack.gd" id="4_7thud"]
 [ext_resource type="PackedScene" uid="uid://be7h2lkvpihn3" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeMovement.tscn" id="4_8fjmc"]
-[ext_resource type="Resource" uid="uid://dk000eugff67n" path="res://objects/box.tres" id="5_a1qjk"]
+[ext_resource type="Resource" uid="uid://dk000eugff67n" path="res://objects/entities/box.tres" id="5_a1qjk"]
 [ext_resource type="Script" uid="uid://blbs0u7qkn6if" path="res://addons/simusdev/network/SD_NetSynchronizer.gd" id="5_qiwj3"]
 [ext_resource type="Script" uid="uid://cydp7kjf4ce6r" path="res://addons/simusdev/network/SD_NetSyncedProperty.gd" id="6_26q78"]
 [ext_resource type="Script" uid="uid://dii7n6tf0gs6q" path="res://addons/simusdev/network/SD_NetSyncProperties.gd" id="7_bectd"]
@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://dy5g2vendwh3" path="res://components/health_component.gd" id="13_j3ovn"]
 [ext_resource type="Script" uid="uid://c3imh0u57248h" path="res://components/mana_component.gd" id="14_afbqv"]
 [ext_resource type="Script" uid="uid://bu1d850lwyg10" path="res://components/canvas.gd" id="17_3wlsy"]
-[ext_resource type="PackedScene" uid="uid://sf36mie4haai" path="res://scenes/player_ui.tscn" id="18_b2kln"]
+[ext_resource type="PackedScene" uid="uid://bn1afnp5cpyo1" path="res://scenes/player_ui.tscn" id="18_b2kln"]
 
 [sub_resource type="Resource" id="Resource_wvtmh"]
 script = ExtResource("6_26q78")

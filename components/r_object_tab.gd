@@ -14,6 +14,9 @@ static func get_references() -> Dictionary[StringName, R_ObjectTab]:
 static func get_reference_list() -> Array[R_ObjectTab]:
 	return _reference_list
 
+static func get_by_name(tab_name: String) -> R_ObjectTab:
+	return _references.get(tab_name)
+
 func register() -> void:
 	if _references.has(name):
 		name += "_"

@@ -30,4 +30,4 @@ func _interact_server(flags: int) -> void:
 	SD_Network.call_func(_interact_net, [flags])
 
 func _interact_net(flags: int) -> void:
-	print(flags)
+	pass

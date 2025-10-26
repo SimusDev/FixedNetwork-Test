@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://sf36mie4haai"]
+[gd_scene load_steps=8 format=3 uid="uid://bn1afnp5cpyo1"]
 
 [ext_resource type="Script" uid="uid://u0fndhwqdksk" path="res://scripts/player_ui.gd" id="1_48xfa"]
 [ext_resource type="FontFile" uid="uid://bo6m3v664h6ss" path="res://fonts/TerminusTTF-4.49.3.ttf" id="1_sk4pr"]
@@ -14,7 +14,7 @@ bg_color = Color(0.6, 0, 0, 1)
 ProgressBar/styles/background = SubResource("StyleBoxFlat_8isll")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_7ctsh")
 
-[sub_resource type="LabelSettings" id="LabelSettings_n31oh"]
+[sub_resource type="LabelSettings" id="LabelSettings_48xfa"]
 font = ExtResource("1_sk4pr")
 font_size = 20
 
@@ -56,9 +56,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "100.0 / 232.0"
-label_settings = SubResource("LabelSettings_n31oh")
+label_settings = SubResource("LabelSettings_48xfa")
 horizontal_alignment = 1
 vertical_alignment = 1
+clip_text = true
 script = ExtResource("2_48xfa")
 font = ExtResource("1_sk4pr")
 font_size = 20
@@ -94,3 +95,4 @@ script = ExtResource("2_48xfa")
 font = ExtResource("1_sk4pr")
 font_size = 20
 metadata/_custom_type_script = "uid://c2rlqeq2bwvd0"
+metadata/_edit_use_anchors_ = true
