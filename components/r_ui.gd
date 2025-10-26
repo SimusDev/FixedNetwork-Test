@@ -11,3 +11,8 @@ func register() -> void:
 
 func unregister() -> void:
 	super()
+
+func create() -> UIReference:
+	var ui := UIReference.new()
+	ui.node = scene.instantiate()
+	return ui
