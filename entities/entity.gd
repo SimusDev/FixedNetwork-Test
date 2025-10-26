@@ -47,13 +47,17 @@ func get_mana_regen() -> float:
 	return stats_resource.mana_regen_per_intelligence * intelligence
 
 func update_stats() -> void:
-	health_component.max_health_points = get_max_health()
-	mana_component.max_mana_points = get_max_mana()
+	if is_instance_valid(health_component):
+		health_component.max_health_points = get_max_health()
+	if is_instance_valid(mana_component):
+		mana_component.max_mana_points = get_max_mana()
 
 func regen_health(delta:float) -> void:
-	health_component.apply_health( (stats_resource.health_regen_per_strength * strength) * delta )
+	if is_instance_valid(health_component):
+		health_component.apply_health( (stats_resource.health_regen_per_strength * strength) * delta )
 func regen_mana(delta:float) -> void:
-	mana_component.apply_replenish( (stats_resource.mana_regen_per_intelligence * intelligence) * delta )
+	if is_instance_valid(mana_component):
+		mana_component.apply_replenish( (stats_resource.mana_regen_per_intelligence * intelligence) * delta )
 
 
 func _physics_process(delta: float) -> void:
