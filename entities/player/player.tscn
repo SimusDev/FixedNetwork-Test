@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://b5mamk8v0a5ok"]
 
 [ext_resource type="Script" uid="uid://478voqxy4st" path="res://entities/player/player.gd" id="1_symyc"]
-[ext_resource type="Script" uid="uid://b33klq6nfl3ui" path="res://components/authority_checker.gd" id="2_bectd"]
+[ext_resource type="Script" path="res://components/authority_checker.gd" id="2_bectd"]
 [ext_resource type="PackedScene" uid="uid://bb30gdt6q8ij" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCamera.tscn" id="2_bls4j"]
 [ext_resource type="PackedScene" uid="uid://dgmj4cxp8xi62" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCrouch.tscn" id="3_fkugw"]
 [ext_resource type="Script" uid="uid://bbdmr5acmnvg7" path="res://components/inventory_slot.gd" id="3_wvtmh"]
@@ -11,9 +11,9 @@
 [ext_resource type="Script" uid="uid://blbs0u7qkn6if" path="res://addons/simusdev/network/SD_NetSynchronizer.gd" id="5_qiwj3"]
 [ext_resource type="Script" uid="uid://cydp7kjf4ce6r" path="res://addons/simusdev/network/SD_NetSyncedProperty.gd" id="6_26q78"]
 [ext_resource type="Script" uid="uid://dii7n6tf0gs6q" path="res://addons/simusdev/network/SD_NetSyncProperties.gd" id="7_bectd"]
-[ext_resource type="Script" path="res://components/entity_input.gd" id="7_j3ovn"]
+[ext_resource type="Script" uid="uid://dx2txo03tewr" path="res://components/entity_input.gd" id="7_j3ovn"]
 [ext_resource type="Script" uid="uid://faep2pp2odh5" path="res://components/inventory.gd" id="9_bectd"]
-[ext_resource type="Script" path="res://components/entity_raycast.gd" id="12_afbqv"]
+[ext_resource type="Script" uid="uid://cn34mh8bewwh0" path="res://components/entity_raycast.gd" id="12_afbqv"]
 [ext_resource type="Script" uid="uid://dy5g2vendwh3" path="res://components/health_component.gd" id="13_j3ovn"]
 [ext_resource type="Script" uid="uid://c3imh0u57248h" path="res://components/mana_component.gd" id="14_afbqv"]
 
@@ -108,9 +108,10 @@ dict = Dictionary[String, Variant]({
 "visible": false
 })
 
-[node name="EntityInput" type="Node" parent="." node_paths=PackedStringArray("root")]
+[node name="EntityInput" type="Node" parent="." node_paths=PackedStringArray("root", "_raycast")]
 script = ExtResource("7_j3ovn")
 root = NodePath("..")
+_raycast = NodePath("../Camera/EntityRayCast3D")
 
 [node name="SD_NetSynchronizer" type="Node" parent="."]
 script = ExtResource("5_qiwj3")
@@ -140,6 +141,7 @@ key_boost = "sprint"
 key_slowdown = "crouch"
 
 [node name="EntityRayCast3D" type="RayCast3D" parent="Camera" node_paths=PackedStringArray("root")]
+process_priority = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.485919)
 target_position = Vector3(0, 0, -2)
 collide_with_areas = true

@@ -3,6 +3,11 @@ class_name EntityRayCast3D
 
 @export var root: Node
 
+enum FLAGS {
+	DEFAULT,
+	ACTIONS,
+}
+
 func _ready() -> void:
 	SD_Network.register_object(self)
 	SD_Network.register_functions([
@@ -15,14 +20,14 @@ func _ready() -> void:
 	
 	SD_Components.append_to(root, self)
 
-func try_interact() -> void:
+func try_interact(flags: int = FLAGS.DEFAULT) -> void:
 	if not SD_Network.is_authority(self):
 		return
 	
-	SD_Network.call_func_on_server(_interact_server)
+	SD_Network.call_func_on_server(_interact_server, [flags])
 
-func _interact_server() -> void:
-	SD_Network.call_func(_interact_net)
+func _interact_server(flags: int) -> void:
+	SD_Network.call_func(_interact_net, [flags])
 
-func _interact_net() -> void:
-	pass
+func _interact_net(flags: int) -> void:
+	print(flags)
