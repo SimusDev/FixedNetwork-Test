@@ -3,6 +3,9 @@ extends Control
 @onready var health_bar:ProgressBar = get_node("health_bar")
 @onready var health_value:Label = health_bar.get_node("health_value")
 
+@onready var mana_bar:ProgressBar = get_node("mana_bar")
+@onready var mana_value:Label = mana_bar.get_node("mana_value")
+
 var player:Player
 
 func _ready() -> void:
@@ -20,6 +23,7 @@ func update() -> void:
 		player.mana_component.max_mana_points)
 
 func set_bar_values(bar:ProgressBar, label:Label, val, max_val) -> void:
+	bar.value = val
 	bar.max_value = max_val
 	
 	var val_snapped = str(snappedf(val, 0.1))

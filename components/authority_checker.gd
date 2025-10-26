@@ -15,8 +15,5 @@ func update() -> void:
 	var keys = dict.keys()
 	var count:int = 0
 	for value in dict.values():
-		print("key: %s, value: %s" % [keys[count], value])
-		print("get: %s" %  target.get(keys[count]))
-		
 		target.set(keys[count], value)
 		count += 1

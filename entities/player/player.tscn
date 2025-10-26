@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b5mamk8v0a5ok"]
+[gd_scene load_steps=27 format=3 uid="uid://b5mamk8v0a5ok"]
 
 [ext_resource type="Script" uid="uid://478voqxy4st" path="res://entities/player/player.gd" id="1_symyc"]
 [ext_resource type="Script" uid="uid://b33klq6nfl3ui" path="res://components/authority_checker.gd" id="2_bectd"]
@@ -13,11 +13,13 @@
 [ext_resource type="Script" uid="uid://dii7n6tf0gs6q" path="res://addons/simusdev/network/SD_NetSyncProperties.gd" id="7_bectd"]
 [ext_resource type="Script" uid="uid://dx2txo03tewr" path="res://components/entity_input.gd" id="7_j3ovn"]
 [ext_resource type="Script" uid="uid://faep2pp2odh5" path="res://components/inventory.gd" id="9_bectd"]
+[ext_resource type="AudioStream" uid="uid://bgitdpcmvn61a" path="res://audio/jump.mp3" id="11_eyb6c"]
 [ext_resource type="Script" uid="uid://cn34mh8bewwh0" path="res://components/entity_raycast.gd" id="12_afbqv"]
 [ext_resource type="Script" uid="uid://dy5g2vendwh3" path="res://components/health_component.gd" id="13_j3ovn"]
 [ext_resource type="Script" uid="uid://c3imh0u57248h" path="res://components/mana_component.gd" id="14_afbqv"]
 [ext_resource type="Script" uid="uid://bu1d850lwyg10" path="res://components/canvas.gd" id="17_3wlsy"]
 [ext_resource type="PackedScene" uid="uid://bn1afnp5cpyo1" path="res://scenes/player_ui.tscn" id="18_b2kln"]
+[ext_resource type="Script" uid="uid://bq5mqfgj4dpg5" path="res://components/footstep_component.gd" id="19_we0b7"]
 
 [sub_resource type="Resource" id="Resource_wvtmh"]
 script = ExtResource("6_26q78")
@@ -105,7 +107,6 @@ target = NodePath("..")
 
 [node name="AuthorityChecker" type="Node" parent="."]
 script = ExtResource("2_bectd")
-target = NodePath("../knight_animated_model")
 dict = Dictionary[String, Variant]({
 "visible": false
 })
@@ -114,6 +115,12 @@ dict = Dictionary[String, Variant]({
 script = ExtResource("7_j3ovn")
 root = NodePath("..")
 _raycast = NodePath("../Camera/EntityRayCast3D")
+
+[node name="FootstepComponent" type="Node" parent="." node_paths=PackedStringArray("entity")]
+script = ExtResource("19_we0b7")
+entity = NodePath("..")
+jump_assets = Array[AudioStream]([ExtResource("11_eyb6c")])
+metadata/_custom_type_script = "uid://bq5mqfgj4dpg5"
 
 [node name="SD_NetSynchronizer" type="Node" parent="."]
 script = ExtResource("5_qiwj3")

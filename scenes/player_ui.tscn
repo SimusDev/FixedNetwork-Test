@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bn1afnp5cpyo1"]
+[gd_scene load_steps=11 format=3 uid="uid://bn1afnp5cpyo1"]
 
 [ext_resource type="Script" uid="uid://u0fndhwqdksk" path="res://scripts/player_ui.gd" id="1_48xfa"]
 [ext_resource type="FontFile" uid="uid://bo6m3v664h6ss" path="res://fonts/TerminusTTF-4.49.3.ttf" id="1_sk4pr"]
 [ext_resource type="Script" uid="uid://c2rlqeq2bwvd0" path="res://addons/simusdev/localization/SD_Label.gd" id="2_48xfa"]
+[ext_resource type="Texture2D" uid="uid://c7g3vlbgmowu8" path="res://textures/crosshair/crosshair.png" id="4_8isll"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8isll"]
 bg_color = Color(0, 0, 0, 1)
@@ -14,14 +15,14 @@ bg_color = Color(0.6, 0, 0, 1)
 ProgressBar/styles/background = SubResource("StyleBoxFlat_8isll")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_7ctsh")
 
-[sub_resource type="LabelSettings" id="LabelSettings_48xfa"]
+[sub_resource type="LabelSettings" id="LabelSettings_8isll"]
 font = ExtResource("1_sk4pr")
 font_size = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48xfa"]
 bg_color = Color(0, 0.2784314, 0.7882353, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_8isll"]
+[sub_resource type="LabelSettings" id="LabelSettings_7ctsh"]
 font = ExtResource("1_sk4pr")
 font_size = 20
 
@@ -56,7 +57,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "100.0 / 232.0"
-label_settings = SubResource("LabelSettings_48xfa")
+label_settings = SubResource("LabelSettings_8isll")
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
@@ -87,7 +88,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "100.0 / 132.0"
-label_settings = SubResource("LabelSettings_8isll")
+label_settings = SubResource("LabelSettings_7ctsh")
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
@@ -96,3 +97,20 @@ font = ExtResource("1_sk4pr")
 font_size = 20
 metadata/_custom_type_script = "uid://c2rlqeq2bwvd0"
 metadata/_edit_use_anchors_ = true
+
+[node name="crosshair" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_8isll")
+expand_mode = 1
