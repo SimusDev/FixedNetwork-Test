@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://sf36mie4haai"]
+[gd_scene load_steps=10 format=3 uid="uid://sf36mie4haai"]
 
 [ext_resource type="Script" uid="uid://u0fndhwqdksk" path="res://scripts/player_ui.gd" id="1_48xfa"]
 [ext_resource type="FontFile" uid="uid://bo6m3v664h6ss" path="res://fonts/TerminusTTF-4.49.3.ttf" id="1_sk4pr"]
@@ -16,7 +16,14 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_7ctsh")
 
 [sub_resource type="LabelSettings" id="LabelSettings_n31oh"]
 font = ExtResource("1_sk4pr")
-font_size = 24
+font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48xfa"]
+bg_color = Color(0, 0.2784314, 0.7882353, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8isll"]
+font = ExtResource("1_sk4pr")
+font_size = 20
 
 [node name="player_ui" type="Control"]
 layout_mode = 3
@@ -25,15 +32,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_48xfa")
 
 [node name="health_bar" type="ProgressBar" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.003125
-anchor_top = 0.055555556
-anchor_right = 0.38340774
-anchor_bottom = 0.108333334
+anchor_top = 0.0069444445
+anchor_right = 0.28515625
+anchor_bottom = 0.043055557
+mouse_filter = 2
 theme = SubResource("Theme_bkx2g")
+value = 75.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
 
@@ -50,5 +61,36 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_48xfa")
 font = ExtResource("1_sk4pr")
-font_size = 24
+font_size = 20
+metadata/_custom_type_script = "uid://c2rlqeq2bwvd0"
+
+[node name="mana_bar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.003125
+anchor_top = 0.05138889
+anchor_right = 0.28515625
+anchor_bottom = 0.0875
+mouse_filter = 2
+theme = SubResource("Theme_bkx2g")
+theme_override_styles/fill = SubResource("StyleBoxFlat_48xfa")
+value = 25.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="mana_value" type="Label" parent="mana_bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100.0 / 132.0"
+label_settings = SubResource("LabelSettings_8isll")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+script = ExtResource("2_48xfa")
+font = ExtResource("1_sk4pr")
+font_size = 20
 metadata/_custom_type_script = "uid://c2rlqeq2bwvd0"
