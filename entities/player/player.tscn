@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b5mamk8v0a5ok"]
+[gd_scene load_steps=24 format=3 uid="uid://b5mamk8v0a5ok"]
 
 [ext_resource type="Script" uid="uid://478voqxy4st" path="res://entities/player/player.gd" id="1_symyc"]
 [ext_resource type="Script" uid="uid://b33klq6nfl3ui" path="res://components/authority_checker.gd" id="2_bectd"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://components/entity_raycast.gd" id="12_afbqv"]
 [ext_resource type="Script" uid="uid://dy5g2vendwh3" path="res://components/health_component.gd" id="13_j3ovn"]
 [ext_resource type="Script" uid="uid://c3imh0u57248h" path="res://components/mana_component.gd" id="14_afbqv"]
+[ext_resource type="Script" uid="uid://bu1d850lwyg10" path="res://components/canvas.gd" id="17_3wlsy"]
 
 [sub_resource type="Resource" id="Resource_wvtmh"]
 script = ExtResource("6_26q78")
@@ -169,6 +170,9 @@ key_crouch = "crouch"
 [node name="ceiling_detect" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.110461116, 0)
 target_position = Vector3(0, 2, 0)
+
+[node name="canvas" type="CanvasLayer" parent="."]
+script = ExtResource("17_3wlsy")
 
 [editable path="Camera"]
 [editable path="Movement"]
