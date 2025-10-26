@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://b5mamk8v0a5ok"]
 
 [ext_resource type="Script" uid="uid://478voqxy4st" path="res://entities/player/player.gd" id="1_symyc"]
-[ext_resource type="Script" uid="uid://b33klq6nfl3ui" path="res://components/authority_checker.gd" id="2_bectd"]
+[ext_resource type="Script" path="res://components/authority_checker.gd" id="2_bectd"]
 [ext_resource type="PackedScene" uid="uid://bb30gdt6q8ij" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCamera.tscn" id="2_bls4j"]
 [ext_resource type="PackedScene" uid="uid://dgmj4cxp8xi62" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCrouch.tscn" id="3_fkugw"]
 [ext_resource type="Script" uid="uid://bbdmr5acmnvg7" path="res://components/inventory_slot.gd" id="3_wvtmh"]

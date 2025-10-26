@@ -16,7 +16,7 @@ func update() -> void:
 	if not is_instance_valid(player):
 		player = Player.local
 		return
-
+	
 	set_bar_values(health_bar, health_value, player.health_component.health_points,
 		player.health_component.max_health_points)
 	set_bar_values(mana_bar, mana_value, player.mana_component.mana_points,
