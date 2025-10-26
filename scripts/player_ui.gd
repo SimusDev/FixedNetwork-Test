@@ -1,7 +1,7 @@
 extends Control
 
 @onready var health_bar:ProgressBar = get_node("health_bar")
-@onready var health_value:ProgressBar = health_bar.get_node("health_value")
+@onready var health_value:Label = health_bar.get_node("health_value")
 
 var player:Player
 

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="R_WorldObject" load_steps=3 format=3 uid="uid://dk000eugff67n"]
+
+[ext_resource type="Script" uid="uid://c7etdcb7b287w" path="res://components/r_world_object.gd" id="1_46lxe"]
+[ext_resource type="Resource" uid="uid://c84gjtd3j4cft" path="res://viewmodels/placeholder.tres" id="2_41mg6"]
+
+[resource]
+script = ExtResource("1_46lxe")
+viewmodel = ExtResource("2_41mg6")
+metadata/_custom_type_script = "uid://byia3eoltsnhf"

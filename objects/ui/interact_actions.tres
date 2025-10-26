@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="R_UI" load_steps=2 format=3 uid="uid://be8hekdypsnox"]
+
+[ext_resource type="Script" uid="uid://nq6ie0bxq54c" path="res://components/r_ui.gd" id="1_7k1e4"]
+
+[resource]
+script = ExtResource("1_7k1e4")
+metadata/_custom_type_script = "uid://nq6ie0bxq54c"
