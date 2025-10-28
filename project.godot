@@ -58,6 +58,7 @@ enabled=PackedStringArray("res://addons/YouCanDoIt/plugin.cfg", "res://addons/fa
 
 [gui]
 
+theme/default_font_antialiasing=0
 theme/custom_font="uid://frqsdjpgwjf4"
 
 [input]
@@ -107,6 +108,8 @@ interact={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/default_filters/use_nearest_mipmap_filter=true
+textures/default_filters/anisotropic_filtering_level=0
 
 [shader_globals]
 

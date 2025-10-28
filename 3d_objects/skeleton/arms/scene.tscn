@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://dcvnorejvjggf"]
+[gd_scene load_steps=6 format=4 uid="uid://dcvnorejvjggf"]
 
 [ext_resource type="Texture2D" uid="uid://3u3ogo7fg68v" path="res://3d_objects/skeleton/textures/skeleton_d.png" id="1_ejdvq"]
 [ext_resource type="Script" uid="uid://c2es25cnn83dy" path="res://components/arms_component.gd" id="1_lxoql"]
-[ext_resource type="PackedScene" uid="uid://ci6f1ugxkg6um" path="res://3d_objects/pasito/scene.tscn" id="3_moenw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwna6"]
 resource_name = "skeleton"
@@ -210,6 +209,3 @@ transform = Transform3D(0.3861596, 0.16389236, 0.9077555, -0.8717816, 0.38645273
 
 [node name="right_hand" type="Marker3D" parent="."]
 transform = Transform3D(0.8010015, -0.2520201, -0.5430311, 0.5885142, 0.16517136, 0.79143524, -0.10976461, -0.95352197, 0.28061977, 0.2660847, 0, -0.5824385)
-
-[node name="Pasito2" parent="right_hand" instance=ExtResource("3_moenw")]
-transform = Transform3D(0.036123987, 0.06349845, -0.18079835, -0.19162445, 0.012276992, -0.033975307, 0.00031942874, 0.18396257, 0.064673655, -0.01694034, 0.09922519, 0.0189749)

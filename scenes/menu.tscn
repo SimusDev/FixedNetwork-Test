@@ -1,6 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4lo8wmlsfr18"]
+[gd_scene load_steps=10 format=3 uid="uid://b4lo8wmlsfr18"]
 
 [ext_resource type="Script" uid="uid://dtahkrmwpyuck" path="res://scenes/menu.gd" id="1_yqeox"]
+[ext_resource type="Texture2D" uid="uid://d6ga5nnsma23" path="res://textures/ui/border-75x180px.png" id="2_vjb58"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_con2f"]
+bg_color = Color(0.11222801, 0.11222801, 0.11222801, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
+bg_color = Color(0.18870407, 0.18870407, 0.18870407, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ytvr"]
+bg_color = Color(0.35554203, 0.35554206, 0.3555419, 0.16470589)
+
+[sub_resource type="Theme" id="Theme_g3eks"]
+LineEdit/colors/font_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_outline_color = Color(0, 0, 0, 1)
+LineEdit/constants/outline_size = 2
+LineEdit/styles/focus = SubResource("StyleBoxFlat_con2f")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_mhnvy")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_4ytvr")
+
+[sub_resource type="LabelSettings" id="LabelSettings_con2f"]
+font_size = 31
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjb58"]
+bg_color = Color(0, 0, 0, 0.4509804)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vjb58"]
+font_size = 30
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -10,13 +41,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yqeox")
-
-[node name="LineEdit" type="LineEdit" parent="."]
-layout_mode = 0
-offset_right = 425.0
-offset_bottom = 44.0
-text = "localhost"
-placeholder_text = "IP"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -32,5 +56,100 @@ offset_right = 424.0
 offset_bottom = 140.0
 text = "CREATE SERVER"
 
+[node name="settings" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 982.0
+offset_top = 43.0
+offset_right = 1277.0
+offset_bottom = 717.5
+theme = SubResource("Theme_g3eks")
+
+[node name="bg" type="TextureRect" parent="settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vjb58")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="title" type="Label" parent="settings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05762712
+anchor_top = -0.049650345
+anchor_right = 0.9457627
+anchor_bottom = 0.0062937187
+text = "Settings"
+label_settings = SubResource("LabelSettings_con2f")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="mp" type="Control" parent="settings"]
+layout_mode = 1
+anchor_left = 0.027118644
+anchor_top = 0.008895482
+anchor_right = 0.9728814
+anchor_bottom = 0.24405597
+metadata/_edit_use_anchors_ = true
+
+[node name="bg" type="ColorRect" parent="settings/mp"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 8.384247
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.54901963)
+
+[node name="title" type="Label" parent="settings/mp"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.006604627
+anchor_right = 1.0
+anchor_bottom = 0.2020455
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_vjb58")
+text = "Multiplayer"
+label_settings = SubResource("LabelSettings_vjb58")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="settings/mp"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 41.0
+offset_right = 275.0
+offset_bottom = 167.0
+
+[node name="nickname" type="LineEdit" parent="settings/mp/VBoxContainer"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+placeholder_text = "nickname"
+alignment = 1
+
+[node name="ip" type="LineEdit" parent="settings/mp/VBoxContainer"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+theme = SubResource("Theme_g3eks")
+text = "localhost"
+placeholder_text = "IP (default: localhost)"
+alignment = 1
+
+[node name="port" type="LineEdit" parent="settings/mp/VBoxContainer"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+theme = SubResource("Theme_g3eks")
+text = "7856"
+placeholder_text = "port (default: 7856)"
+alignment = 1
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="text_changed" from="settings/mp/VBoxContainer/nickname" to="." method="_on_nickname_text_changed"]
+[connection signal="text_submitted" from="settings/mp/VBoxContainer/port" to="." method="_on_port_text_submitted"]
